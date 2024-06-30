@@ -1,0 +1,16 @@
+{% extends 'dogs/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <form method="post">
+                    {% csrf_token %}
+                    <p>Действительно хотите удалить собаку {{ object.name }}</p>
+                    <button type="submit" class="btn btn-outline-danger">Удалить</button>
+                    <a type="submit" class="btn btn-outline-warning" href="{% url 'dogs:category' object.category.pk %}">Отмена</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
