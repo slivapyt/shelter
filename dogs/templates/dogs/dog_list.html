@@ -12,11 +12,9 @@
                     <div class="card-body">
                         <p class="card-text">{{ object.name|title }}</p>
                         <span class="text-muted">
-                            {% if object.birth_day %}
-                                {{ object.birth_day }}
-                            {% endif %}
-
-                    </span>
+                            {{ object.birth_day|default:"-" }}
+                        </span><br>
+                        <span class="text-muted">{{ object.owner|default:"Без хозяина" }}</span>
                     </div>
                     <div class="card-footer">
                         <a class="btn btn-outline-primary" href="{% url 'dogs:dog_update' object.pk %}">изменить</a>
